@@ -1,5 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME  S.Kishore</H3> 
+
+<H3>ENTER YOUR REGISTER NO. 212222240050</H3> 
+
 <H3>EX. NO.1</H3>
 <H3>DATE</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
@@ -37,12 +39,83 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+
+X=data.iloc[:,:-1].values
+X
+
+y=data.iloc[:,-1].values
+y
+
+data.isnull().sum()
+
+data.duplicated()
+
+data.describe()
+
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+X_train
+
+X_test
+
+print("Lenght of X_test ",len(X_test))
 
 
+```
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
 
+## Dataset:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/b719139a-7640-4a0a-973c-ee7d87bee81f)
+
+## X Values:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/07aa1876-048b-4a7a-b6de-c597868ff9cb)
+
+## Y Values:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/1e4eb20a-4537-44cc-b68a-e6140a8bc003)
+
+## Null Values:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/fb3c06cf-85b1-4869-90b0-2dfdb738834d)
+
+## Duplicated Values:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/ba55c729-093b-4f9b-bd49-dd46c8d1f4af)
+
+## Description:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/81017828-34bf-4bdc-932c-d75c8b0a5790)
+
+## Normalized Dataset:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/460f3add-d4a3-41fc-9b74-485bc3171505)
+
+## Training Data:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/6412e2d4-7b33-41e2-a5a2-ca1b3b26d18e)
+
+## Testing Data:
+
+![image](https://github.com/Kishore2o/Ex-1-NN/assets/118679883/5cb3480c-50b2-4ad4-a311-4cd8a093e991)
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
